@@ -1,16 +1,10 @@
 import logo from "./logo.svg";
 import "./App.css";
+import pokemon from "./pokemon.json";
 
 function App() {
   return (
-    <div
-      style={{
-        margin: "auto",
-        width: 800,
-        paddingTop: "1rem",
-        border: "2px solid black",
-      }}
-    >
+    <div className="main-style">
       <h1 className="title">Poke Finder1</h1>
       <table width="100%">
         <thead>
@@ -20,10 +14,12 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Bulbasaur</td>
-            <td>Grass, Poison</td>
-          </tr>
+          {pokemon.map((pokemon) => (
+            <tr>
+              <td></td>
+              <td>Grass, Poison</td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
