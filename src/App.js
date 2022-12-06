@@ -1,11 +1,12 @@
 import logo from "./logo.svg";
 import "./App.css";
 import pokemon from "./pokemon.json";
+import PokemonRow from "./PokemonRow";
 
 function App() {
   return (
     <div className="main-style">
-      <h1 className="title">Poke Finder1</h1>
+      <h1 className="title">Pokemon Finder</h1>
       <table width="100%">
         <thead>
           <tr>
@@ -15,10 +16,7 @@ function App() {
         </thead>
         <tbody>
           {pokemon.slice(0, 20).map((pokemon) => (
-            <tr key={pokemon.id}>
-              <td>{pokemon.name.english}</td>
-              <td>{pokemon.type.join(", ")}</td>
-            </tr>
+            <PokemonRow pokemon={pokemon} key={pokemon.id} />
           ))}
         </tbody>
       </table>
