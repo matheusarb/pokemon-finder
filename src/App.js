@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import PokemonRow from "./PokemonRow";
 import PokemonInfo from "./PokemonInfo";
@@ -14,7 +14,7 @@ function App() {
   const [pokemon, pokemonSet] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     fetch("http://localhost:3001/react-pokemon-finder/pokemon.json")
       .then((resp) => resp.json())
       .then((data) => pokemonSet(data));
@@ -44,7 +44,7 @@ function App() {
                     .toLowerCase()
                     .includes(filter.toLowerCase())
                 )
-                .slice(0, 10)
+                .slice()
                 .map((pokemon) => (
                   <PokemonRow
                     pokemon={pokemon}

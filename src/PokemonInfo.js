@@ -24,12 +24,14 @@ const PokemonInfo = ({ name, base }) => {
         <h1>{name.english}</h1>
       </div>
       <table>
-        {Object.keys(base).map((key) => (
-          <tr key={key}>
-            <td>{key}</td>
-            <td>{base[key]}</td>
-          </tr>
-        ))}
+        <tbody>
+          {Object.keys(base).map((key) => (
+            <tr key={key}>
+              <td>{key}</td>
+              <td>{base[key]}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   );
