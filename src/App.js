@@ -1,16 +1,24 @@
 import React, { useState } from "react";
 import "./App.css";
-import pokemon from "./pokemon.json";
 import PokemonRow from "./PokemonRow";
 import PokemonInfo from "./PokemonInfo";
 
+//import pokemon from "./public/pokemon.json";
+
 function App() {
-  //REACT HOOK
+  //REACT HOOK -- read React documentation
   //useState() returns an array that has two items in it
   //first is the current state
   //the second is a function that sets the first state
   const [filter, filterSet] = useState("");
+  const [pokemon, pokemonSet] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null);
+
+  React.useEffect(() => {
+    fetch("http://localhost:3001/react-pokemon-finder/pokemon.json")
+      .then((resp) => resp.json())
+      .then((data) => pokemonSet(data));
+  }, []);
 
   const onFilterChange = (event) => {
     filterSet(event.target.value);
