@@ -23,6 +23,14 @@ const PokemonInfo = ({ name, base }) => {
       <div>
         <h1>{name.english}</h1>
       </div>
+      <table>
+        {Object.keys(base).map((key) => (
+          <tr key={key}>
+            <td>{key}</td>
+            <td>{base[key]}</td>
+          </tr>
+        ))}
+      </table>
     </div>
   );
 };
