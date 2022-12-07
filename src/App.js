@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import pokemon from "./pokemon.json";
 import PokemonRow from "./PokemonRow";
+import PokemonInfo from "./PokemonInfo";
 
 function App() {
   //REACT HOOK
@@ -46,11 +47,7 @@ function App() {
             </tbody>
           </table>
         </div>
-        {selectedItem && (
-          <div>
-            <h1>{selectedItem.name.english}</h1>
-          </div>
-        )}
+        {selectedItem && <PokemonInfo {...selectedItem} />}
       </div>
     </div>
   );
