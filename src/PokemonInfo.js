@@ -18,6 +18,8 @@ const PokemonInfo = ({ name, base }) => {
     }),
   };
 
+  //NO_SET_OPTIONS
+
   return (
     <div>
       <div>
