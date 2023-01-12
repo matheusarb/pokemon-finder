@@ -2,8 +2,20 @@ import React, { useState, useEffect } from "react";
 import "./App.css";
 import PokemonRow from "./PokemonRow";
 import PokemonInfo from "./PokemonInfo";
+import styled from "@emotion/styled";
 
 //import pokemon from "./public/pokemon.json";
+
+const Title = styled.h1`
+  text-align: center;
+  color: rgb(85, 85, 85);
+`;
+
+const Pokemon_Table_Grid = styled.div`
+  display: grid;
+  grid-template-columns: 70% 30%;
+  grid-column-gap: 1rem;
+`;
 
 function App() {
   //REACT HOOK -- read React documentation
@@ -15,7 +27,7 @@ function App() {
   const [selectedItem, setSelectedItem] = useState(null);
 
   useEffect(() => {
-    fetch("http://localhost:3001/react-pokemon-finder/pokemon.json")
+    fetch("http://localhost:3000/react-pokemon-finder/pokemon.json")
       .then((resp) => resp.json())
       .then((data) => pokemonSet(data));
   }, []);
@@ -26,8 +38,8 @@ function App() {
 
   return (
     <div className="main-style">
-      <h1 className="title">Pokemon Finder</h1>
-      <div className="pokemon-table-grid">
+      <Title>Pokemon Finder</Title>
+      <Pokemon_Table_Grid>
         <div>
           <input value={filter} onChange={onFilterChange} className="input" />
           <table width="100%">
@@ -56,7 +68,7 @@ function App() {
           </table>
         </div>
         {selectedItem && <PokemonInfo {...selectedItem} />}
-      </div>
+      </Pokemon_Table_Grid>
     </div>
   );
 }
