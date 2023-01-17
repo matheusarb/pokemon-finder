@@ -11,10 +11,24 @@ const Title = styled.h1`
   color: rgb(85, 85, 85);
 `;
 
-const Pokemon_Table_Grid = styled.div`
+const TwoColumnLayout = styled.div`
   display: grid;
   grid-template-columns: 70% 30%;
   grid-column-gap: 1rem;
+`;
+
+const MainContainer = styled.div`
+  margin: auto;
+  width: 800px;
+  padding-top: 1rem;
+  border: 3px solid rgba(124, 123, 121, 0.6);
+  border-radius: 4px;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  font-size: x-large;
+  padding: 0.25rem;
 `;
 
 function App() {
@@ -37,11 +51,11 @@ function App() {
   };
 
   return (
-    <div className="main-style">
+    <MainContainer>
       <Title>Pokemon Finder</Title>
-      <Pokemon_Table_Grid>
+      <TwoColumnLayout>
         <div>
-          <input value={filter} onChange={onFilterChange} className="input" />
+          <Input value={filter} onChange={onFilterChange} className="input" />
           <table width="100%">
             <thead>
               <tr>
@@ -68,8 +82,8 @@ function App() {
           </table>
         </div>
         {selectedItem && <PokemonInfo {...selectedItem} />}
-      </Pokemon_Table_Grid>
-    </div>
+      </TwoColumnLayout>
+    </MainContainer>
   );
 }
 
